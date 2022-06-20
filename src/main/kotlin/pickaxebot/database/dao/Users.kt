@@ -25,7 +25,7 @@ object UserManager {
     }
 
     fun deleteUserData(id: Snowflake) {
-        collection.removeOne(UserData::id eq id.value.toLong())
+        collection.deleteOne(UserData::id eq id.value.toLong())
     }
 
     fun userExists(id: Snowflake): Boolean {

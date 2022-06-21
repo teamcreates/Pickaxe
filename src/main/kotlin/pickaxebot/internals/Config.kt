@@ -9,6 +9,7 @@ import java.io.File
 @Serializable
 data class Config(
     val token: String = "your bot token here",
+    val gitRepository: String = "https://github.com/devlaq/Pickaxe",
     val databaseConfig: DatabaseConfig = DatabaseConfig()
 ) {
     companion object {

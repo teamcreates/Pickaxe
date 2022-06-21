@@ -1,7 +1,7 @@
 package pickaxebot
 
 import com.kotlindiscord.kord.extensions.ExtensibleBot
-import pickaxebot.command.Commands
+import pickaxebot.extension.Extensions
 import pickaxebot.database.Database
 import pickaxebot.internals.Config
 
@@ -9,7 +9,7 @@ object PickaxeBot {
 
     lateinit var config: Config
 
-    lateinit var commands: Commands
+    lateinit var extensions: Extensions
     lateinit var bot: ExtensibleBot
 
     suspend fun initialize() {
@@ -17,13 +17,14 @@ object PickaxeBot {
 
         Database.initialize(config.databaseConfig)
 
-        commands = Commands()
+        extensions = Extensions()
+
         bot = ExtensibleBot(config.token) {
             extensions {
                 help {
                     enableBundledExtension = false
                 }
-                commands.registerCommands(this)
+                this@PickaxeBot.extensions.registerExtensions(this)
             }
         }
 

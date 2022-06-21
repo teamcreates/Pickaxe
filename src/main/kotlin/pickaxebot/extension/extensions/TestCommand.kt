@@ -1,4 +1,4 @@
-package pickaxebot.command.commands
+package pickaxebot.extension.extensions
 
 import com.kotlindiscord.kord.extensions.commands.Arguments
 import com.kotlindiscord.kord.extensions.commands.application.slash.publicSubCommand
